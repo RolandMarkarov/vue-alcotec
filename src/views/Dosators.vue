@@ -1,14 +1,11 @@
 <template>
-  <div class="dosators"> Dosators
+  <div class="dosators">
     <table class="table">
-      <tr class="table-title">
-        <th v-for="title in titles" :key="title">{{title}}</th>
-      </tr>
-        <tabs v-for="product in products"
-              :key="product.id"
-              :product ="product"/>
+      <tabs-header/>
+      <tabs v-for="product in products"
+            :key="product.id"
+            :product="product"/>
     </table>
-
 
 
   </div>
@@ -16,16 +13,13 @@
 
 <script>
   import Tabs from "../components/Tabs";
-  import { mapState } from 'vuex'
+  import {mapState} from 'vuex'
+  import TabsHeader from "../components/TabsHeader";
 
   export default {
     name: "Dosators",
-    components: {Tabs},
-    data() {
-      return {
-        titles: ['Изображение', "Наименование", "Наличие", "Цена"]
-      }
-    },
+    components: {TabsHeader, Tabs},
+
     computed: mapState({products: state => state.dosators})
   }
 </script>
@@ -33,6 +27,7 @@
 <style scoped lang="scss">
   .dosators {
     padding: 20px;
+
     .table {
       border-collapse: collapse;
       width: 50vw;

@@ -1,9 +1,7 @@
 <template>
-<div class="vacuumators">Vacuumators
+<div class="vacuumators">
   <table class="table">
-    <tr class="table-title">
-      <th v-for="title in titles" :key="title">{{title}}</th>
-    </tr>
+    <tabs-header/>
     <tabs v-for="product in products"
           :key="product.id"
           :product ="product"/>
@@ -14,9 +12,10 @@
 <script>
   import Tabs from "../components/Tabs";
   import { mapState } from 'vuex'
+  import TabsHeader from "../components/TabsHeader";
   export default {
     name: "Vacuumators",
-    components: {Tabs},
+    components: {TabsHeader, Tabs},
     data() {
       return {
         titles: ['Изображение', "Наименование", "Наличие", "Цена"]

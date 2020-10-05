@@ -16,10 +16,19 @@ export default new Vuex.Store({
       state.vacuumators = payload
     },
   },
-  actions: {},
+  actions: {
+    sortByPrice({commit, state}, payload) {
+      if (payload.isDesc) {
+        state[payload.path].sort((a, b) => {
+          return b.priceUAH - a.priceUAH
+        })
+      } else {
+        state[payload.path].sort((a, b) => {
+          return a.priceUAH - b.priceUAH
+        })
+      }
+    }
+  },
   modules: {},
-  getters: {
-    getDosators: state => state.dosators,
-    getVacuumators: state => state.vacuumators
-  }
+  getters: {}
 })

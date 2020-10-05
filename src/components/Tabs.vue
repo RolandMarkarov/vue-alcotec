@@ -1,10 +1,9 @@
 <template>
   <tr>
-
     <td><img :src="url" alt="" class="product"></td>
     <td>{{product.title}}</td>
     <td>{{product.availability.ru}}</td>
-    <td>{{product.priceUAH}}</td>
+    <td>{{product.priceUAH}} UAH</td>
   </tr>
 </template>
 
@@ -20,8 +19,8 @@
         default: {}
       }
     },
-    computed:{
-      url(){
+    computed: {
+      url() {
         return 'https://dev.alcotec.com.ua' + this.product.img
       }
     }
@@ -36,8 +35,9 @@
     font-size: 12px;
     height: 40px;
   }
-  .product{
+
+  .product {
     max-width: 30px;
-    height: inherit;
+    height: auto;
   }
 </style>
