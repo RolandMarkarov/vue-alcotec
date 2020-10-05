@@ -5,11 +5,6 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home
-  // },
   {
     path: '/',
     name: 'Main',
@@ -27,14 +22,19 @@ const routes = [
     component: () => import('@/views/Dosators.vue')
   },
   {
+    path: '/payment-conditions',
+    name: 'PaymentConditions',
+    component: () => import('@/views/PaymentConditions.vue')
+  },
+  {
     path: '/return-conditions',
-    name: 'return-conditions',
+    name: 'ReturnConditions',
     component: () => import('@/views/ReturnConditions.vue')
   },
   {
-    path: '/payment-conditions',
-    name: 'payment-conditions',
-    component: () => import('@/views/PaymentConditions.vue')
+    path: '/*',
+    name: '404',
+    component: () => import('@/views/404.vue')
   },
 ]
 
